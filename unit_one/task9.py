@@ -15,9 +15,9 @@
 x = int(input("Введите число х="))
 y = int(input("Введите число y="))
 z = int(input("Введите число z="))
-if x>y and x>z:
+if x > y and x>z:
     print("Наибольшее число ",x)
-elif y>z:
+elif y > z:
     print("Наибольшее число ",y)
 else:
     print("Наибольшее число ",z)
