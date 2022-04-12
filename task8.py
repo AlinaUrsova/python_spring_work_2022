@@ -4,9 +4,9 @@
 a = int(input('введите A'))
 b = int(input('введите B'))
 c = int(input('введите C'))
-ba = a
-cb = b
-ac = c
-print('A=',ba)
-print('B=',cb)
-print('C=',ac)
+c1 = b
+a1 = c
+b1 = a
+print('A=',a1)
+print('B=',b1)
+print('C=',c1)
