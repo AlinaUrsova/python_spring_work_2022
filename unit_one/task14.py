@@ -11,14 +11,20 @@
 #Для числа 2 индексы двух ближайших чисел: 6 и 9
 
 mass = []
+masi = []
+index = 0
 N = int(input("введите размер массива"))
 for i in range(N):
     mass.append(int(input("введите элемент массива")))
 print(mass)
 for i in mass:
     if mass.count(i) >= 2:
-        print(mass.index(i))
         #не понимаю как вывести несколько индексов
+        #while i < N:
+            #i = mass.index(i)
+            #masi.append(i)
+            #index = i + 1
+    #print(masi)
 
 
 
