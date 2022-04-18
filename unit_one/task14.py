@@ -12,7 +12,7 @@
 
 mass = []
 masi = []
-index = 0
+i2 = 0
 N = int(input("введите размер массива"))
 for i in range(N):
     mass.append(int(input("введите элемент массива")))
@@ -20,11 +20,12 @@ print(mass)
 for i in mass:
     if mass.count(i) >= 2:
         #не понимаю как вывести несколько индексов
-        #while i < N:
-            #i = mass.index(i)
-            #masi.append(i)
-            #index = i + 1
-    #print(masi)
+        while i != N:
+            i2 = (mass.index(i))
+            masi.append(i2)
+            i = i + 1
+        print(masi)
+
 
 
 
