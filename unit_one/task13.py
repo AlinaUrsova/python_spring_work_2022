@@ -1,11 +1,11 @@
 #todo: Дан целочисленный массив размера N из 10 элементов.
 #Преобразовать массив, увеличить каждый его элемент на единицу.
 
-a = []
+mass = []
 N = 10
 for i in range(N):
-    a.append(int(input("введите элемент массива")))
-print(a)
+    mass.append(int(input("введите элемент массива")))
+print(mass)
 for i in range(N):
-    a[i] += 1
-print(a)
+    mass[i] += 1
+print(mass)
