@@ -22,7 +22,6 @@ for i in mass:
     if mass.count(i) >= 2:
         x = i
 position = 0
-start = 0
 index_for_element = []
 length = len(mass)
 while position < length:
@@ -32,11 +31,11 @@ while position < length:
 print(index_for_element)
 start = None
 min_ = 1000000
-for elm in index_for_element:
+for elm in index_for_element:  #до этого момента все работает, но при подсчете минимума выходит из цикла раньше времени
     if start is None:
         start = elm
         continue
-    if elm - start < min_:
+    if elm - start <= min_:
         min_ = elm - start
         first_start_index = start
         second_start_index = elm
