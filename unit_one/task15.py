@@ -50,7 +50,7 @@ counter = 0
 while True:
     user = input("Ведите букву или слово: ")
     if user == answer_main:
-        print("Вы правильно назвали слово!")
+        print("Вы правильно назвали слово!", answer_main)
         break
     if (user in answer_main):
         print("Такая буква есть!")
@@ -58,9 +58,13 @@ while True:
             if answer_main[i] == user:
                 star_answer[i] = user
                 user_answer = "".join(star_answer)
+                print(user_answer)
     else:
         print("Такой буквы нет")
         counter = counter + 1
         if counter == 10:
             print("вы не угадали")
             break
+    if user_answer == answer_main:
+        print("Вы правильно назвали все буквы!правильное слово ", answer_main )
+        break
