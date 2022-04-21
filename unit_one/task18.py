@@ -12,7 +12,8 @@ sum_ = int(input("введите сумму"))
 
 for a in range(1, 7):
     for b in range(1, 7):
-        result = tuple((a, b))
+        result = list((a, b))
         if (a + b) == sum_:
-            print("для суммы ", sum_, "комбинация", result)
+            result = tuple(result)
+            print("для суммы ", sum_, "комбинация", result) #не получается преобразовать список в кортеж
 
