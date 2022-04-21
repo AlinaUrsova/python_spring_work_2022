@@ -11,10 +11,10 @@
 def compute_bill():
 
   bill = {
-    "banana": int(input("количество бананов")),
-    "apple": int(input("количество яблок")),
-    "orange": int(input("количество апельсинов")),
-    "pear": int(input("количество груш"))
+    "banana": int(input("Сколько бананов вы хотите купить?")),
+    "apple": int(input("Сколько яблок вы хотите купить?")),
+    "orange": int(input("Сколько апльсинов вы хотите купить?")),
+    "pear": int(input("Сколько груш вы хотите купить?"))
   }
 
   prices = {
