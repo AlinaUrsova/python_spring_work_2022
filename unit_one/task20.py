@@ -14,6 +14,10 @@
 #Beautiful is better than ugly.
 
 file = open('import_this.txt', 'r')
-for text in reversed(file.readline()):
-    print(text, end='')
+s = file.readlines()
+reversed_s = s[::-1]
+for i in reversed_s:
+    print(i)
+file.close()
+
 
