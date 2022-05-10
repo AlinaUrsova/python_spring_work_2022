@@ -11,10 +11,10 @@ def parent(i):
     return i//2
 
 def left(i):
-    return 2 * i
+    return 2 * i + 1
 
 def right(i):
-    return 2 * i + 1
+    return 2 * i + 2
 
 def max_heapify(A,i):
     l = left(i)
@@ -32,7 +32,7 @@ def max_heapify(A,i):
 def build_max_heap(A):
     n = int((len(A)//2)-1)
     for i in range(n, -1, -1):
-        max_heapify(A,i)
+        max_heapify(A, i)
 
 A = [50, 14, 60, 7, 20, 70, 55, 5, 15, -10]
 build_max_heap(A)
