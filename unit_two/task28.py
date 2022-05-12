@@ -13,16 +13,17 @@ import random
 
 def decoration_(func):
     def wrapper(*args):
-        f = open('debug.log', 'w+', encoding='utf-8')
-
+        f = open('debug.log', 'a+', encoding='utf-8')
         start_func = func(*args)
         wrapper.count += 1
         log = str(func.__name__) + " " + str(wrapper.count) + " " + str(time.ctime())
         f.write(str(log))
+        f.write('\n')
         print(str(log))
         return start_func
     wrapper.count = 0
     return wrapper
+
 
 @decoration_
 
@@ -33,9 +34,7 @@ def render(*args):
 
 n = random.sample(range(0, 1000000), 50000)
 render(n)
-render(n)
-render(n)
-render(n)
+
 
 @decoration_
 def show(*args):
@@ -44,4 +43,4 @@ def show(*args):
 text = ("Hi")
 show(text)
 
-
+render(n)
