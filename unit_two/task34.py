@@ -47,29 +47,35 @@ conn = conn.getconnection()
 print(conn)
 
 class Profile:
-    def __init__(self, db, login_u, password_u, fio, mail, phones, group):
+    def __init__(self, db, login, password, name, surname, phones, age):
         self.db = db
-        self.login_u = login_u
-        self.password_u = password_u
-        self.fio = fio
-        self.mail = mail
+        self.login = login
+        self.password = password
+        self.name = name
+        self.surname = surname
         self.phones = phones
-        self.group = group
+        self.age = age
         #self.conn = conn
     def getprofile(self):
         #conn = psycopg.connect(f"dbname={self.name} user={self.user} password={self.password}")
-        get_login = conn.execute(f"""SELECT login FROM user_lp where login = '{self.login_u}'""")
+        get_login = conn.execute(f"""SELECT login FROM user_lp where login = '{self.login}'""")
         #res_login = conn.fetchall()
         return get_login
 
-    # часть с setprofile не сделала еще
+
     def setprofile(self):
         #conn = psycopg.connect(f"dbname={self.name} user={self.user} password={self.password}")
-        conn.execute("select id_user from user_lp")
-        ids = conn.fetchall()
-        id_new = (len(ids)) + 1
-        conn.execute(f"""insert into user_ values ({id_new}, '{self.} """)
+
+        #conn.execute("select id_user_lp from test2")
+        #ids = conn.fetchall()
+        #id_new = (len(ids)) + 1
+
+        set = conn.execute(f"INSERT INTO test3 (login, password, name, surname, phones, age) VALUES "
+                    f"({self.login}, {self.password}, {self.name}, {self.surname}, {self.phones}, {self.age});")
+        return set
 
 conn_profile = Profile("my_test", "admin", "123", "Ivanov Ivan Ivanovich", "mail@mail.ru", "899999999", "1")
 get1 = conn_profile.getprofile()
 print(get1)
+
+
