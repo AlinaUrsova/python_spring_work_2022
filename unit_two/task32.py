@@ -34,7 +34,7 @@ with psycopg.connect("dbname=my_test user=my_user_test password=123") as conn:
 
         #создание констрейн
 
-        #cur.execute("""
+        cur.execute("""
                  ALTER TABLE "my_test_student" ADD CONSTRAINT "fk_my_test_student_id_group" FOREIGN KEY ("id_group")
                 REFERENCES "my_test_group" ("group")
                  """)
