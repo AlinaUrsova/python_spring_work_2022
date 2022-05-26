@@ -41,11 +41,6 @@ class Db:
         conn = psycopg.connect(f"dbname={self.dbname} user={self.user} password={self.password}")
         return conn
 
-
-conn = Db("my_test", "my_user_test", "123")
-conn = conn.getconnection()
-print(conn)
-
 class Profile:
     def __init__(self, db, login, password, name, surname, phones, age):
         self.db = db
@@ -55,27 +50,25 @@ class Profile:
         self.surname = surname
         self.phones = phones
         self.age = age
-        #self.conn = conn
-    def getprofile(self):
-        #conn = psycopg.connect(f"dbname={self.name} user={self.user} password={self.password}")
-        get_login = conn.execute(f"""SELECT login FROM user_lp where login = '{self.login}'""")
-        #res_login = conn.fetchall()
-        return get_login
 
+    def getprofile(self):
+        cur = conn.cursor()
+        cur.execute(f"""SELECT login FROM user_lp where login = '{self.login}'""")
+        res_login = cur.fetchall()
+        return res_login
 
     def setprofile(self):
-        #conn = psycopg.connect(f"dbname={self.name} user={self.user} password={self.password}")
-
-        #conn.execute("select id_user_lp from test2")
-        #ids = conn.fetchall()
-        #id_new = (len(ids)) + 1
-
-        set = conn.execute(f"INSERT INTO test3 (login, password, name, surname, phones, age) VALUES "
-                    f"({self.login}, {self.password}, {self.name}, {self.surname}, {self.phones}, {self.age});")
-        return set
-
-conn_profile = Profile("my_test", "admin", "123", "Ivanov Ivan Ivanovich", "mail@mail.ru", "899999999", "1")
-get1 = conn_profile.getprofile()
-print(get1)
+        cur = conn.cursor()
+        cur.execute(f"INSERT INTO test3 (login, password, name, surname, phones, age) VALUES "
+                    f"('{self.login}', '{self.password}', '{self.name}', '{self.surname}', {self.phones}, {self.age});")
+        conn.commit()
 
 
+
+conn = Db("my_test", "my_user_test", "123")
+conn = conn.getconnection()
+
+
+
+new_student = Profile("my_test", "admin", "123", "Ivanov", "Ivanivich", 899999999, 19)
+new_student.setprofile()
